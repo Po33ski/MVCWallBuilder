@@ -1,0 +1,46 @@
+﻿@model List<MVCWallBuilder.Models.WallLayoutViewModel>
+
+@*
+
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    float FactorR = 0;
+    float FactorU = 0;
+
+}
+
+<h1>Wall Builder</h1>
+<p>This is your wall</p>
+
+<hr />
+
+<div class="col-6">
+    <div class="card">
+        <div class="card-header">
+            <h5>Layers:</h5>
+        </div>
+        <ul>
+            @foreach (var layer in Model)
+            {
+                <li>@layer.Name (@layer.Wide)mm with lambda: (@layer.LambdaFactor) [W/mK]</li>
+                // calculate factor R
+                FactorR = FactorR + (@layer.Wide / @layer.LFAfterConv);
+                // calculate factor U
+                FactorU = 1 / FactorR;
+
+            }
+        </ul>
+    </div>
+</div>
+
+
+
+<hr />
+<h4>The Factor R of the wall is: @FactorR [m2K/W]</h4>
+<hr />
+<h4>The Factor U of the wall is: @FactorU [W/m2K]</h4>
+
+
+
+

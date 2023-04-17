@@ -1,0 +1,38 @@
+﻿@model WallLayoutViewModel
+<h1>Create your Wall</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-6">
+
+        <div class="card">
+            <div class="card-header">
+                <h5>Add a new layer to your wall</h5>
+            </div>
+            <div class="card-body">
+                <form asp-controller="Front" asp-action="CreateLayer" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Name of the layer</label>
+                        <input asp-for="Name" type="text" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Wide [mm]</label>
+                        <input asp-for="Wide" type="number" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Lambda Factor [W/mK]</label>
+                        <input asp-for="LambdaFactor" type="text" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+            </div>
+        </div>
+
+
+    </div>
+</div>
